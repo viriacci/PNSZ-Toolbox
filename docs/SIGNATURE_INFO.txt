@@ -1,4 +1,4 @@
-PNSZ Toolbox v1.0.1 - self-signed Authenticode
+PNSZ Toolbox v1.0.5 - self-signed Authenticode
 
 Subject: O=PanSzczesniak,CN=PNSZ Toolbox
 Issuer: O=PanSzczesniak,CN=PNSZ Toolbox
@@ -11,13 +11,25 @@ Certificate SHA-256 thumbprint:
 D2E94CBBE08400B3C6D1843671B4DB4345CE6F218B46E4381D333451DD3A1B59
 
 Unsigned EXE SHA-256:
-631b1918b3c156a4e4be87778fdfdc481d56933485551bbc8338f2d582186127
+065bfb8566e602c87fac748677e0ab8d75bc8157699e14870f6f16920ead2e86
 
 Signed EXE SHA-256:
-abb8dd7af6e7d3925afc259fe64bd672964034d19d661f072621166166527f1b
+ded59c992cf05eba1b01deb017146369ec328e783f5bfda75f4307df69ba86f5
+
+Core EXE SHA-256:
+d9576b9ee997c3f39879e6598384601b24d3a272d4e9b61a12840d5709f2e6bc
 
 Source package SHA-256:
-81998ec1bb57831ee8c469bec78b46bde89d7bdea99bdae791e3784f711fdfcf
+392122044a2d30a03ca7545c1f1b23e63b7f6d5d98595dadf0537da8564884d7
+
+Signed release package SHA-256:
+8ec743ada616f4ea8c82801de013c3a68d15b9a4398f3c160b6e4c8a885afaa0
+
+Verification performed during build:
+OK - PE certificate table present
+OK - PKCS#7 SignedData parses
+OK - RSA/SHA-256 signature verifies
+OK - Authenticode PE digest matches executable
 
 Trust:
 This certificate is self-signed. Windows will not trust the publisher automatically on another PC. Install the public .cer certificate into the appropriate trusted certificate store if you want Windows to trust this self-signed publisher.
