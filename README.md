@@ -1,8 +1,8 @@
 # PNSZ Toolbox
 
-**PNSZ Toolbox** to desktopowy zestaw narzędzi dla Windows, zebrany w jednym oknie i jednej lokalnej bazie danych. Wersja `1.0.5` zawiera sześć modułów, obsługę wielu użytkowników, jasny i ciemny motyw oraz lokalne przechowywanie danych.
+**PNSZ Toolbox** to desktopowy zestaw narzędzi dla Windows, zebrany w jednym oknie i jednej lokalnej bazie danych.
 
-> **Wersja:** 1.0.5  
+> **Wersja:** 1.0.71  
 > **Autor:** PanSzczesniak  
 > **System:** Windows 10/11 x64  
 > **UI:** WebView2
@@ -18,56 +18,76 @@
 | **To-do** | Zadania z terminem, kontaktem i opcjonalnym adresem WWW. |
 | **Atlas** | Przeglądarka osadzona w aplikacji; domyślną kartą jest Google. |
 
-## Co jest w 1.0.5
+## Co jest w 1.0.71
 
-Największa zmiana w `1.0.5` dotyczy Generatora PDF. Pięć wbudowanych szablonów dostało pełny redesign w kierunku **Corporate Elegant / Executive Minimal**.
+`1.0.71` jest małym wydaniem poprawkowym po `1.0.7`.
 
-- nowe, ciemniejsze nagłówki dokumentów,
-- wyraźniejsza hierarchia typografii,
-- mniej ramek i pól typu box,
-- lżejsze tabele,
-- nowe pola podkreślane,
-- poprawione odstępy i podpisy,
-- spójny wygląd podglądu i finalnego PDF,
-- rewizja wbudowanych szablonów podniesiona do `105`,
-- zachowane poprawki przełączania szablonów oraz przycisków **Nowy**, **Edytuj** i **Kopiuj**.
+- **To-do:** rok w polu **Termin** jest ograniczony do maksymalnie czterech cyfr,
+- pole ma limit daty do `9999-12-31 23:59`,
+- dodatkowa walidacja przycina ręcznie wpisany rok dłuższy niż cztery cyfry,
+- zachowane są wszystkie poprawki samouczków z `1.0.7`,
+- zachowana jest nowa ikona aplikacji z `1.0.6`.
+
+## Ostatnie większe zmiany
+
+### 1.0.7
+
+- poprawiona kolejność warstw samouczka,
+- dialog samouczka pozostaje nad przyciemnieniem i podświetleniem,
+- poprawione pozycjonowanie dialogu po scrollowaniu i po załadowaniu iframe,
+- poprawiona obsługa kroków wskazujących elementy wewnątrz modułów.
+
+### 1.0.6
+
+- dodane osobne samouczki do wszystkich modułów i Ustawień,
+- możliwość ponownego uruchamiania przewodników z menu `?`,
+- osobne ustawienie **Nie pokazuj** dla każdego przewodnika,
+- nowa ikona aplikacji.
+
+### 1.0.5
+
+- pełny redesign pięciu wbudowanych szablonów Generatora PDF,
+- styl Corporate Elegant / Executive Minimal,
+- spójny wygląd podglądu i finalnego PDF.
 
 ## Generator PDF
 
 Generator zawiera pięć szablonów startowych:
 
-- **Notatka służbowa** — granatowy styl executive,
-- **Protokół spotkania** — fioletowy styl corporate,
-- **Raport statusowy** — ciemnozielony styl raportowy,
-- **Wniosek / zgłoszenie** — ciepły brązowo-pomarańczowy akcent,
-- **Karta przekazania zadania** — chłodny niebieski styl operacyjny.
+- **Notatka służbowa**,
+- **Protokół spotkania**,
+- **Raport statusowy**,
+- **Wniosek / zgłoszenie**,
+- **Karta przekazania zadania**.
 
 Wbudowane szablony są aktualizowane bez kasowania własnych szablonów użytkownika.
 
 ## Funkcje
 
-- logowanie wielu użytkowników i konto administratora,
-- avatar zapisany w danych aplikacji, bez zależności od pliku źródłowego,
+- obsługa wielu użytkowników i konto administratora,
+- avatary przechowywane wewnątrz danych aplikacji,
 - Generator PDF z wbudowanymi i własnymi szablonami,
-- awaryjny wybór nowej lokalizacji, gdy zapamiętana ścieżka zapisu PDF jest niedostępna,
-- formatowanie Sticknotes: pogrubienie, kursywa, podkreślenie, przekreślenie oraz listy,
-- zabezpieczanie Sticknotes PIN-em,
-- link WWW w To-do,
-- przewodnik po modułach z możliwością trwałego ukrycia,
-- osobny katalog danych dla PNSZ Toolbox,
-- Atlas oparty o WebView2 z własnym hostem kart.
+- awaryjny wybór nowej lokalizacji zapisu PDF, gdy zapamiętany folder jest niedostępny,
+- Biblioteka dokumentów,
+- Zegar,
+- Sticknotes z formatowaniem tekstu i opcjonalnym PIN-em,
+- To-do z terminem, kontaktem i adresem WWW,
+- Atlas oparty o WebView2,
+- jasny i ciemny motyw,
+- samouczki nawigacji, wszystkich modułów i Ustawień,
+- lokalne backupy i mechanizmy kontroli integralności danych.
 
 ## Uruchomienie
 
 Aplikacja jest przenośnym plikiem EXE i nie wymaga instalatora.
 
-WebView2 Runtime jest standardowo obecny w aktualnych Windows 10 i Windows 11. Jeżeli Atlas nie uruchamia stron, warto w pierwszej kolejności sprawdzić Microsoft Edge WebView2 Runtime.
+WebView2 Runtime jest standardowo obecny w aktualnych Windows 10 i Windows 11. Jeżeli Atlas nie uruchamia stron, warto sprawdzić Microsoft Edge WebView2 Runtime.
 
 Przy pierwszym uruchomieniu dostępne jest konto `Admin` bez hasła. Hasło administratora można ustawić później w aplikacji.
 
 ## Podpis cyfrowy
 
-Build `v1.0.5` jest podpisany tym samym certyfikatem **self-signed Code Signing** co wcześniejsze wydania:
+Build `v1.0.71` jest podpisany tym samym certyfikatem **self-signed Code Signing** co wcześniejsze wydania:
 
 - `Subject: CN=PNSZ Toolbox, O=PanSzczesniak`,
 - RSA 3072 / SHA-256,
@@ -82,25 +102,25 @@ Self-signed potwierdza integralność podpisanego pliku i ciągłość klucza wy
 Weryfikacja na Windows:
 
 ```powershell
-Get-AuthenticodeSignature .\PNSZ_Toolbox_v1.0.5_signed.exe | Format-List *
+Get-AuthenticodeSignature .\PNSZ_Toolbox_v1.0.71_signed.exe | Format-List *
 ```
 
 SHA-256 podpisanego EXE:
 
 ```text
-ded59c992cf05eba1b01deb017146369ec328e783f5bfda75f4307df69ba86f5
+0fd27942bbc5686e1c61d0c58a00093fabcf47c1d4c3f20339cfc7a990cd96af
 ```
 
 SHA-256 paczki źródłowej:
 
 ```text
-392122044a2d30a03ca7545c1f1b23e63b7f6d5d98595dadf0537da8564884d7
+24b064e4ffaa6f2564f63b7175992006ddbc4755f75a6c5075ca3d5eb730d61d
 ```
 
 SHA-256 pełnej paczki wydania:
 
 ```text
-8ec743ada616f4ea8c82801de013c3a68d15b9a4398f3c160b6e4c8a885afaa0
+893e6186bac72ae95dd3e1eda626e8a07be337407c5c8fb5d673230696fc2be6
 ```
 
 ## Dane
@@ -111,7 +131,7 @@ Atlas otwiera zwykłe strony internetowe, więc jego karty korzystają z sieci n
 
 ## Build
 
-Wymagania dla obecnego procesu budowania:
+Wymagania dla procesu budowania:
 
 - Python 3,
 - Go 1.23+,
@@ -139,4 +159,4 @@ PNSZ-Toolbox/
 
 ## Status
 
-`v1.0.5` jest aktualnym wydaniem PNSZ Toolbox. Ta wersja skupia się na pełnym redesignie pięciu wbudowanych szablonów Generatora PDF oraz zachowaniu stabilności mechaniki edytora i przełączania szablonów.
+`v1.0.71` jest aktualnym wydaniem PNSZ Toolbox.
