@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.0.71
+
+- To-do: rok w polu **Termin** jest ograniczony do maksymalnie czterech cyfr.
+- Dodano limit daty do `9999-12-31 23:59`.
+- Dodano zabezpieczenie przycinające ręcznie wpisany rok dłuższy niż cztery cyfry.
+- Zachowano wszystkie poprawki samouczków z `v1.0.7`.
+
+## v1.0.7
+
+- poprawiona kolejność warstw samouczka,
+- dialog samouczka pozostaje nad przyciemnieniem i podświetleniem,
+- poprawione pozycjonowanie dialogu podczas scrollowania,
+- aktywny krok jest ponownie renderowany po załadowaniu iframe,
+- poprawiona obsługa kroków wskazujących elementy wewnątrz modułów i Ustawień.
+
+## v1.0.6
+
+- dodane osobne samouczki do Generatora PDF, Biblioteki, Zegara, Sticknotes, To-do, Atlasu i Ustawień,
+- dodane menu `?` pozwalające uruchomić przewodniki ponownie,
+- osobne ustawienie **Nie pokazuj** dla każdego samouczka,
+- podświetlanie elementów również wewnątrz iframe modułów,
+- dodana nowa ikona aplikacji.
+
 ## v1.0.5
 
 - pełny redesign pięciu wbudowanych szablonów Generatora PDF,
