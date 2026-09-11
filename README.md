@@ -122,12 +122,6 @@ PNSZ-Toolbox/
 └─ README.md
 ```
 
-Paczka źródłowa v1.0.1 znajduje się w:
-
-```text
-packages/PNSZ_Toolbox_Source_v1.0.1.zip
-```
-
 ## Status
 
 `v1.0.1` jest poprawkowym wydaniem PNSZ Toolbox, skupionym na Generatorze PDF, Bibliotece, Zegarze, Sticknotes oraz zachowaniu natywnego okna aplikacji.
