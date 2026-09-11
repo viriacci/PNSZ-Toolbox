@@ -33,7 +33,7 @@
 
 ## Uruchomienie
 
-Gotowy build znajduje się w paczce wydania `PNSZ_Toolbox_v1.0.0_signed_release.zip`. Aplikacja nie wymaga instalatora.
+Aplikacja jest przenośnym plikiem EXE i nie wymaga instalatora. Duże pliki binarne wydania nie są trzymane w historii Git. Repozytorium przechowuje dokumentację podpisu oraz publiczny certyfikat wydawcy.
 
 WebView2 Runtime jest standardowo obecny w aktualnych Windows 10 i Windows 11. Jeżeli Atlas nie uruchamia stron, warto w pierwszej kolejności sprawdzić właśnie WebView2 Runtime.
 
@@ -44,12 +44,12 @@ Przy pierwszym uruchomieniu dostępne jest konto `Admin` bez hasła. Hasło admi
 Build `v1.0.0` jest podpisany certyfikatem **self-signed**:
 
 - `Subject: CN=PNSZ Toolbox, O=PanSzczesniak`,
-- RSA / SHA-256,
+- RSA 3072 / SHA-256,
 - EKU: Code Signing,
 - ważność: 2026–2036,
 - SHA-256 certyfikatu: `D2E94CBBE08400B3C6D1843671B4DB4345CE6F218B46E4381D333451DD3A1B59`.
 
-Publiczny certyfikat jest częścią projektu. Prywatny PFX **nie jest publikowany w repozytorium**. Ten plik pozwala podpisywać kolejne wydania, więc jego upublicznienie unieważniłoby sens całego podpisu szybciej niż zdążyłby zareagować SmartScreen.
+Publiczny certyfikat znajduje się w `certs/`. Prywatny PFX **nie jest publikowany w repozytorium**. Upublicznienie prywatnego klucza pozwoliłoby dowolnej osobie podpisywać pliki tym samym certyfikatem, więc taki certyfikat przestałby mieć jakąkolwiek wartość.
 
 Self-signed potwierdza integralność pliku i ciągłość klucza wydawcy. Nie daje automatycznego zaufania Windows ani reputacji SmartScreen.
 
@@ -73,13 +73,14 @@ Atlas otwiera zwykłe strony internetowe, więc jego karty korzystają z sieci n
 
 ## Build
 
-Wymagania:
+Wymagania dla obecnego procesu budowania:
 
 - Python 3,
 - Go 1.23+,
-- Windows target `amd64`.
+- Windows target `amd64`,
+- natywne składniki Core, Atlas Host i WebView2Loader z paczki źródłowej wydania.
 
-Podstawowy build:
+Build:
 
 ```powershell
 python source/build.py
@@ -87,18 +88,17 @@ python source/build.py
 
 Skrypt pakuje moduły HTML, osadza shell w Core, uruchamia `go vet` i buduje launcher Windows. Podpis cyfrowy jest osobnym etapem. Prywatny klucz nie jest zaszyty w kodzie ani w buildzie.
 
-## Struktura projektu
+## Repozytorium
 
 ```text
 PNSZ-Toolbox/
 ├─ certs/                  publiczny certyfikat Code Signing
 ├─ docs/                   changelog, audyt i informacje o podpisie
-├─ scripts/                narzędzia do kontroli podpisu
-├─ source/                 kod aplikacji
+├─ scripts/                kontrola podpisu i opcjonalny lokalny trust
 └─ README.md
 ```
 
-Kod źródłowy obejmuje Generator PDF, Bibliotekę, Zegar, Sticknotes, To-do, Atlas, shell, launcher i referencyjne źródło hosta Atlasu.
+Pełna paczka źródłowa wydania zawiera Generator PDF, Bibliotekę, Zegar, Sticknotes, To-do, Atlas, shell, launcher i referencyjne źródło hosta Atlasu. Binarne składniki procesu budowania są dystrybuowane razem z tą paczką, a nie przechowywane jako duże obiekty w historii Git.
 
 ## Kontrola integralności
 
