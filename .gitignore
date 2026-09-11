@@ -1,0 +1,9 @@
+*.pfx
+*.p12
+*_PRIVATE*
+*.key
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
