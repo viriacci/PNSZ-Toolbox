@@ -1,8 +1,8 @@
 # PNSZ Toolbox
 
-**PNSZ Toolbox** to desktopowy zestaw narzędzi dla Windows, zebrany w jednym oknie i jednej lokalnej bazie danych. Wersja `1.0.1` zawiera sześć modułów, obsługę wielu użytkowników, jasny i ciemny motyw oraz lokalne przechowywanie danych.
+**PNSZ Toolbox** to desktopowy zestaw narzędzi dla Windows, zebrany w jednym oknie i jednej lokalnej bazie danych. Wersja `1.0.5` zawiera sześć modułów, obsługę wielu użytkowników, jasny i ciemny motyw oraz lokalne przechowywanie danych.
 
-> **Wersja:** 1.0.1  
+> **Wersja:** 1.0.5  
 > **Autor:** PanSzczesniak  
 > **System:** Windows 10/11 x64  
 > **UI:** WebView2
@@ -18,22 +18,37 @@
 | **To-do** | Zadania z terminem, kontaktem i opcjonalnym adresem WWW. |
 | **Atlas** | Przeglądarka osadzona w aplikacji; domyślną kartą jest Google. |
 
-## Co jest w 1.0.1
+## Co jest w 1.0.5
 
-- Generator PDF automatycznie odtwarza pięć szablonów startowych, jeżeli brakuje ich w bazie,
-- Biblioteka używa neutralnego nazewnictwa „dokument” zamiast „instrukcja”,
-- moduł czasu nosi nazwę **Zegar** bez numeru wersji w interfejsie i eksporcie,
-- poprawione przewijanie listy rodzaju godzin/dnia,
-- zaznaczanie tekstu w Sticknotes nie zamyka już okna tworzenia notatki,
-- tytuł natywnego okna jest wymuszany na **PNSZ Toolbox**,
-- katalog runtime launchera nie używa już nazwy `PNSZ Toolbox Storage1`,
-- zachowana poprawka awaryjnego wyboru lokalizacji zapisu PDF z v1.0.0.
+Największa zmiana w `1.0.5` dotyczy Generatora PDF. Pięć wbudowanych szablonów dostało pełny redesign w kierunku **Corporate Elegant / Executive Minimal**.
+
+- nowe, ciemniejsze nagłówki dokumentów,
+- wyraźniejsza hierarchia typografii,
+- mniej ramek i pól typu box,
+- lżejsze tabele,
+- nowe pola podkreślane,
+- poprawione odstępy i podpisy,
+- spójny wygląd podglądu i finalnego PDF,
+- rewizja wbudowanych szablonów podniesiona do `105`,
+- zachowane poprawki przełączania szablonów oraz przycisków **Nowy**, **Edytuj** i **Kopiuj**.
+
+## Generator PDF
+
+Generator zawiera pięć szablonów startowych:
+
+- **Notatka służbowa** — granatowy styl executive,
+- **Protokół spotkania** — fioletowy styl corporate,
+- **Raport statusowy** — ciemnozielony styl raportowy,
+- **Wniosek / zgłoszenie** — ciepły brązowo-pomarańczowy akcent,
+- **Karta przekazania zadania** — chłodny niebieski styl operacyjny.
+
+Wbudowane szablony są aktualizowane bez kasowania własnych szablonów użytkownika.
 
 ## Funkcje
 
 - logowanie wielu użytkowników i konto administratora,
 - avatar zapisany w danych aplikacji, bez zależności od pliku źródłowego,
-- Generator PDF z neutralnymi szablonami biurowymi,
+- Generator PDF z wbudowanymi i własnymi szablonami,
 - awaryjny wybór nowej lokalizacji, gdy zapamiętana ścieżka zapisu PDF jest niedostępna,
 - formatowanie Sticknotes: pogrubienie, kursywa, podkreślenie, przekreślenie oraz listy,
 - zabezpieczanie Sticknotes PIN-em,
@@ -42,29 +57,17 @@
 - osobny katalog danych dla PNSZ Toolbox,
 - Atlas oparty o WebView2 z własnym hostem kart.
 
-## Generator PDF
-
-Generator zawiera pięć szablonów startowych:
-
-- Notatka służbowa,
-- Protokół spotkania,
-- Raport statusowy,
-- Wniosek / zgłoszenie,
-- Karta przekazania zadania.
-
-W v1.0.1 brakujące szablony są automatycznie odtwarzane również w istniejącej bazie użytkownika.
-
 ## Uruchomienie
 
 Aplikacja jest przenośnym plikiem EXE i nie wymaga instalatora.
 
-WebView2 Runtime jest standardowo obecny w aktualnych Windows 10 i Windows 11. Jeżeli Atlas nie uruchamia stron, warto w pierwszej kolejności sprawdzić właśnie WebView2 Runtime.
+WebView2 Runtime jest standardowo obecny w aktualnych Windows 10 i Windows 11. Jeżeli Atlas nie uruchamia stron, warto w pierwszej kolejności sprawdzić Microsoft Edge WebView2 Runtime.
 
 Przy pierwszym uruchomieniu dostępne jest konto `Admin` bez hasła. Hasło administratora można ustawić później w aplikacji.
 
 ## Podpis cyfrowy
 
-Build `v1.0.1` jest podpisany tym samym certyfikatem **self-signed Code Signing** co v1.0.0:
+Build `v1.0.5` jest podpisany tym samym certyfikatem **self-signed Code Signing** co wcześniejsze wydania:
 
 - `Subject: CN=PNSZ Toolbox, O=PanSzczesniak`,
 - RSA 3072 / SHA-256,
@@ -79,13 +82,25 @@ Self-signed potwierdza integralność podpisanego pliku i ciągłość klucza wy
 Weryfikacja na Windows:
 
 ```powershell
-Get-AuthenticodeSignature .\PNSZ_Toolbox_v1.0.1_signed.exe | Format-List *
+Get-AuthenticodeSignature .\PNSZ_Toolbox_v1.0.5_signed.exe | Format-List *
 ```
 
 SHA-256 podpisanego EXE:
 
 ```text
-abb8dd7af6e7d3925afc259fe64bd672964034d19d661f072621166166527f1b
+ded59c992cf05eba1b01deb017146369ec328e783f5bfda75f4307df69ba86f5
+```
+
+SHA-256 paczki źródłowej:
+
+```text
+392122044a2d30a03ca7545c1f1b23e63b7f6d5d98595dadf0537da8564884d7
+```
+
+SHA-256 pełnej paczki wydania:
+
+```text
+8ec743ada616f4ea8c82801de013c3a68d15b9a4398f3c160b6e4c8a885afaa0
 ```
 
 ## Dane
@@ -117,11 +132,11 @@ Skrypt pakuje moduły HTML, osadza shell w Core, uruchamia `go vet` i buduje lau
 PNSZ-Toolbox/
 ├─ certs/                  publiczny certyfikat Code Signing
 ├─ docs/                   changelog, audyt i informacje o podpisie
-├─ packages/               paczki źródłowe wydań
+├─ packages/               paczki źródłowe wcześniejszych wydań
 ├─ scripts/                kontrola podpisu i opcjonalny lokalny trust
 └─ README.md
 ```
 
 ## Status
 
-`v1.0.1` jest poprawkowym wydaniem PNSZ Toolbox, skupionym na Generatorze PDF, Bibliotece, Zegarze, Sticknotes oraz zachowaniu natywnego okna aplikacji.
+`v1.0.5` jest aktualnym wydaniem PNSZ Toolbox. Ta wersja skupia się na pełnym redesignie pięciu wbudowanych szablonów Generatora PDF oraz zachowaniu stabilności mechaniki edytora i przełączania szablonów.
