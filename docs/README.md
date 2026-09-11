@@ -1,4 +1,4 @@
-# Dokumentacja PNSZ Toolbox v1.0.5
+# Dokumentacja PNSZ Toolbox v1.0.71
 
 Główny opis projektu znajduje się w `../README.md`.
 
@@ -9,4 +9,4 @@ W tym katalogu są:
 - `SIGNATURE_INFO.txt` — dane certyfikatu, hashe i wynik kontroli podpisu,
 - `SIGNING.md` — zasady obsługi self-signed Code Signing.
 
-Wydanie `v1.0.5` skupia się na pełnym redesignie pięciu wbudowanych szablonów Generatora PDF oraz zachowaniu poprawek mechaniki edytora z `v1.0.4`.
+Aktualne wydanie `v1.0.71` ogranicza rok w polu **Termin** modułu To-do do czterech cyfr i zachowuje wszystkie poprawki samouczków z `v1.0.7` oraz nową ikonę z `v1.0.6`.
